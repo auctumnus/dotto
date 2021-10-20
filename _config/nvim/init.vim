@@ -14,6 +14,8 @@ call plug#begin("~/.vim/plugged")
   " TypeScript Highlighting
   Plug 'leafgarland/typescript-vim'
   Plug 'peitalin/vim-jsx-typescript'
+  " GraphQL
+  Plug 'jparise/vim-graphql'
   " Vue support
   Plug 'leafOfTree/vim-vue-plugin'
   " Tailwind
@@ -30,6 +32,8 @@ call plug#begin("~/.vim/plugged")
 call plug#end()
 
 colorscheme wal
+
+au BufNewFile,BufRead *.prisma setfiletype graphql
 
 "Config Section
 let g:NERDTreeShowHidden = 1
