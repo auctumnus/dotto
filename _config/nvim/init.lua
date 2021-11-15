@@ -2,6 +2,7 @@ require 'colors'
 require 'plugins'
 require 'lualine_conf'
 require 'settings'
+require 'lsp'
 
 -- Keybindings
 vim.cmd([[source ~/.config/nvim/bindings.vim]])
