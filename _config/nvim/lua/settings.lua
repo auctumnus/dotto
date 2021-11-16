@@ -37,11 +37,13 @@ settings = {
 
   -- "Always show the signcolumn, otherwise it would shift the text each time
   -- diagnostics appear/become resolved."
-  signcolumn = 'number'
+  signcolumn = 'yes'
 }
 
 for key, val in pairs(settings) do
   vim.o[key] = val
 end
+
+vim.fn.sign_define('LightBulbSign', { text = "", texthl = "LspDiagnosticsDefaultInformation"})
 
 return true

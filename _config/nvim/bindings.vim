@@ -1,6 +1,8 @@
 " Bindings are much easier to write in Vimscript than Lua.
 " Also, I can just copy stuff way easier, and it's just about as readable.
 
+autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()
+
 " turn terminal to normal mode with escape
 tnoremap <Esc> <C-\><C-n>
 
