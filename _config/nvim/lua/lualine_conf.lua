@@ -29,8 +29,6 @@ end
 lualine.setup({
   options = {
     theme = theme,
-    section_separators   = { '', '' },
-    component_separators = { '', '' }
   },
   sections = {
     lualine_a = { 'mode' },
