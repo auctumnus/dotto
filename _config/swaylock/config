@@ -4,7 +4,7 @@ screenshots
 effect-blur=3x5
 font=Inter
 font-size=24
-effect-compose=/home/auctumnus/.config/swaylock/lockscreen-light.png
+effect-compose=/home/auctumnus/.config/swaylock/lockscreen-dark.png
 
 timestr=%I:%M %p
 
@@ -18,19 +18,19 @@ inside-ver-color=00000000
 inside-wrong-color=00000000
 separator-color=00000000
 
-text-color=493F3D
-text-clear-color=493F3D
-text-caps-lock=color=493F3D
-text-ver-color=493F3D
-text-wrong-color=493F3D
+text-color=#c8bdad
+text-clear-color=#c8bdad
+text-caps-lock=color=#c8bdad
+text-ver-color=#c8bdad
+text-wrong-color=#c8bdad
 
-ring-color=D3C7B9
-ring-ver-color=E3D1BD
-ring-wrong-color=BBC5C2
-ring-clear-color=D5D2CA
+ring-color=#756656
+ring-ver-color=#943438
+ring-wrong-color=#645852
+ring-clear-color=#8A755D
 
-key-hl-color=E3D1BD
+key-hl-color=#8A9032
 
-bs-hl-color=BBC5C2
-caps-lock-bs-hl-color=BBC5C2
+bs-hl-color=#645852
+caps-lock-bs-hl-color=#645852
 
