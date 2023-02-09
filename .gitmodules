@@ -1,3 +1,0 @@
-[submodule "_config/polybar/taskwarrior-polybar"]
-	path = _config/polybar/taskwarrior-polybar
-	url = https://github.com/dakuten/taskwarrior-polybar.git
