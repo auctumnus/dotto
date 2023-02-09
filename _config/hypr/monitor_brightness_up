@@ -1,0 +1,11 @@
+#!/usr/bin/bash
+
+BACKLIGHT_BRIGHTNESS_FILE="/sys/class/backlight/intel_backlight/brightness"
+MAX_BRIGHTNESS_FILE="/sys/class/backlight/intel_backlight/max_brightness"
+
+BACKLIGHT_BRIGHTNESS=$(cat /sys/class/backlight/intel_backlight/brightness)
+MAX_BRIGHTNESS=$(cat /sys/class/backlight/intel_backlight/max_brightness)
+
+if (( $BACKLIGHT_BRIGHTNESS <= $MAX_BRIGHTNESS )); then
+  echo $(($BACKLIGHT_BRIGHTNESS + 250)) > $BACKLIGHT_BRIGHTNESS_FILE
+fi

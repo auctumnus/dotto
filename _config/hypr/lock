@@ -1,0 +1,2 @@
+#!/bin/bash
+swaync-client --hide-latest && swaync-client -dn && swaylock && swaync-client -df

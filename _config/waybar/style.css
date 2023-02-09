@@ -1,0 +1,219 @@
+@import url("/home/auctumnus/.cache/wal/colors-waybar.css");
+
+@define-color background alpha(@color0, 0.95);
+@define-color fullerBackground alpha(@color2, 0.95);
+@define-color textcolor @color15;
+@define-color fullerTextcolor darker(@color15);
+@define-color border alpha(@textcolor, 0.2);
+
+/*@define-color background rgba(255,255,255,0.5);
+@define-color fullerBackground rgba(255,255,255,0.95);
+@define-color textcolor #444;
+@define-color fullerTextcolor #111;*/
+/*@define-color background rgba(70,70,70,0.5);
+@define-color fullerBackground rgba(70,70,70,0.95);
+@define-color textcolor #eee;
+@define-color fullerTextcolor #fff;*/
+* {
+  /* `otf-font-awesome` is required to be installed for icons */
+  font-family: FontAwesome, Inter, TerminessTTF, Roboto, Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  transition-timing-function: cubic-bezier(0.2, 0.0, 0, 1.0);
+  transition-property: background-color, color, opacity;
+  transition-duration: .5s;
+}
+
+window#waybar {
+  background: transparent;
+  color: @textcolor;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+/*
+window#waybar.empty {
+    background-color: transparent;
+}
+window#waybar.solo {
+    background-color: #FFFFFF;
+}
+*/
+
+#custom-menubutton {
+  background-color: @background;
+  color: @textcolor;
+  border-radius: 100%;
+  margin-right: 6px;
+  padding: 0 9px;
+}
+
+button {
+    /* Use box-shadow instead of border so the text isn't offset */
+    box-shadow: inset 0 0px transparent;
+    /* Avoid rounded borders under each button name */
+    border: none;
+    border-radius: 0;
+}
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+button:hover {
+    background: inherit;
+}
+
+#workspaces {
+  box-shadow: 10px 5px 5px black;
+}
+
+#workspaces button {
+  padding: 0 0.5rem;
+    background-color: @background;
+    color: @textcolor;
+}
+
+#workspaces button:not(:first-child) {
+  border-left: 1px solid @border;
+}
+
+#workspaces button:first-child {
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+  padding-left: 0.75rem;
+}
+
+#workspaces button:last-child {
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  padding-right: 0.75rem;
+}
+
+#workspaces button:hover, #workspaces button.active {
+    background-color: @fullerBackground;
+    color: @fullerTextcolor;
+}
+
+#workspaces button.focused {
+    background-color: #64727D;
+    box-shadow: inset 0 3px #ffffff;
+}
+
+#workspaces button.urgent {
+    background-color: #eb4d4b;
+}
+
+#window {
+  background-color: @background;
+  padding: 0 1rem;
+  border-radius: 1rem;
+  margin: 0 4px;
+}
+
+#mode {
+    background-color: #64727D;
+    border-bottom: 3px solid #ffffff;
+}
+
+#clock,
+#battery,
+#network,
+#pulseaudio,
+#custom-media,
+#tray,
+#mpd {
+  padding: 0 0.75rem;
+    color: @textcolor;
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
+}
+
+#pulseaudio, #battery, #clock, #tray {
+  background-color: @background;
+}
+
+#battery, #clock, #tray {
+  border-left: 1px solid @border;
+}
+
+#pulseaudio {
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+  padding-left: 1.25rem;
+}
+
+#tray {
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  padding-right: 1.25rem;
+}
+
+#battery.charging, #battery.plugged {
+    color: @textcolor;
+}
+
+@keyframes blink {
+    to {
+        color: red;
+    }
+}
+
+#battery.critical:not(.charging) {
+    color: @textcolor;
+    animation-name: blink;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+label:focus {
+    background-color: #000000;
+}
+
+#custom-media {
+    background-color: #66cc99;
+    color: #2a5c45;
+    min-width: 100px;
+}
+
+#custom-media.custom-spotify {
+    background-color: #66cc99;
+}
+
+#custom-media.custom-vlc {
+    background-color: #ffa000;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: #eb4d4b;
+}
+
+#mpd {
+    background-color: #66cc99;
+    color: #2a5c45;
+}
+
+#mpd.disconnected {
+    background-color: #f53c3c;
+}
+
+#mpd.stopped {
+    background-color: #90b1b1;
+}
+
+#mpd.paused {
+    background-color: #51a37a;
+}

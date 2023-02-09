@@ -1,0 +1,39 @@
+#!/bin/bash
+
+sleep 1
+
+killall waybar
+waybar &
+
+killall darkman
+darkman run &
+
+killall swaync
+killall swaync-client
+swaync &
+
+killall swww
+swww init &
+
+killall gammastep
+killall redshift
+gammastep -l 47.2:-93.5 &
+
+darkman set $(darkman get)
+
+killall xdg-desktop-portal-hyprland
+killall xdg-desktop-portal-wlr
+killall xdg-desktop-portal
+killall xdg-desktop-portal-gtk
+
+/usr/libexec/xdg-desktop-portal-hyprland &
+sleep 2
+/usr/lib/xdg-desktop-portal &
+
+LOCK="~/.config/hypr/lock"
+
+swayidle -w \\
+	timeout 300 "$LOCK" \\
+	timeout 600 'hyprctl dispatch dpms off' \\
+		resume 'hyprctl dispatch dpms on"' \\
+	before-sleep "$LOCK"

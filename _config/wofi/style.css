@@ -1,0 +1,20 @@
+@import url("/home/auctumnus/.cache/wal/colors-waybar.css");
+
+@define-color background alpha(@color0, 0.5);
+@define-color fullerBackground alpha(@color0, 0.95);
+@define-color textcolor @color15;
+@define-color fullerTextcolor darker(@color15);
+@define-color border alpha(@textcolor, 0.2);
+
+* {
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+window {
+  color: @textcolor;
+  border-radius: 1rem;
+  background-color: @fullerBackground;
+}
+#outer-box {
+  padding: 2rem;
+}
